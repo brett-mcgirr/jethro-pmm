@@ -353,7 +353,7 @@ class Attendance_Record_Set
 			$headcountValue = Headcount::fetch('person_group', $this->date, $this->groupid);
 		}
 		?>
-		<input type="tel" name="<?php echo $headcountFieldName; ?>" value="<?php echo $headcountValue; ?>" style="width: 60px" />
+		<input type="tel" class="headcount" name="<?php echo $headcountFieldName; ?>" value="<?php echo $headcountValue; ?>" style="width: 60px" />
 		<span id="present-count" class="muted"></span>
 		<?php
 	}
