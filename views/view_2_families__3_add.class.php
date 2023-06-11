@@ -211,9 +211,16 @@ class View_Families__Add extends View
 
 						<?php
 						if (!empty($group_options)) {
+							$default_group_id = 0;
 							foreach ($group_options as $id => $g) {
 								$group_options[$id] = $g['name'];
+								$default_group_id = $id;
 							}
+
+							if (count($group_options) > 1) {
+								$default_group_id = 0;
+							}
+
 							$group_params = Array(
 												'type' => 'select',
 												'options' => $group_options,
@@ -231,7 +238,7 @@ class View_Families__Add extends View
 									}
 								?>
 							</label>
-							<div class="congregation"><?php print_widget('members_0_groupid', $group_params, 0);?></div>
+							<div class="congregation preserve-value"><?php print_widget('members_0_groupid', $group_params, $default_group_id);?></div>
 							<div class="person-status preserve-value"><?php Person_Group::printMembershipStatusChooser('members_0_membership_statusid', NULL); ?></div>
 							<?php
 						}
