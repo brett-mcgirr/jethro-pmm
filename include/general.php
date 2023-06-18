@@ -480,7 +480,9 @@ function print_widget($name, $params, $value)
 				foreach ((array)$value as $val) {
 					if (!empty($val) && !isset($options[$val])) {
 						$obj = $GLOBALS['system']->getDBObject($params['references'], $val);
-						$options[$val] = $obj->toString();
+						if(!empty($obj)) {
+							$options[$val] = $obj->toString();
+						}
 					}
 				}
 
