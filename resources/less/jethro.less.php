@@ -152,6 +152,12 @@ if (is_readable($confFile)) {
 	position: sticky; /* https://css-tricks.com/a-clever-sticky-footer-technique/ */
 	top: 100vh;
 }
+table tr.sticky th,
+table tr.sticky td {
+	position: sticky;
+	top: 0;
+}
+
 @media (max-width: 640px) {
 	body#login {
 		overflow: hidden;
