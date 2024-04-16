@@ -625,7 +625,7 @@ TBLib.allInputsEmpty = function(JQElt)
 	}).end();
 	var y = JQElt.find('select');
 	y.each(function() {
-		if ((this.value != '') && (0 == $(this).parents('td.preserve-value').length)) {
+		if ((this.value != '') && (0 == $(this).parents('.preserve-value').length)) {
 			for (var j=0; j < this.options.length; j++) {
 				if (this.options[j].value == '') {
 					// it's not blank but it could have been blank
