@@ -197,7 +197,7 @@ class View_Attendance__Display extends View
 		<form method="post" action="" class="bulk-person-action" enctype="multipart/form-data">
 		<table class="table table-hover table-auto-width nowrap table-bordered table-condensed">
 			<thead>
-				<tr>
+				<tr class="sticky">
 					<th><?php echo _('Name');?></th>
 					<th><?php echo $groupid ? 'Membership Status' : 'Status'; ?></th>
 				<?php
