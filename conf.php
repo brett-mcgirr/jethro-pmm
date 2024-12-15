@@ -219,7 +219,7 @@ define('SMTP_PASSWORD',  getenv('AZURE_SMTP_PASSWORD'));
 
 // For troubleshooting you can use this to show error details in the browser
 // This is usually disabled in production versions but shown in dev.
-define('SHOW_ERROR_DETAILS', FALSE);
+define('SHOW_ERROR_DETAILS', getenv('AZURE_APP_SHOW_ERROR_DETAILS'));
 
 // Text encoding for sending SMS messages.
 // Change it to something other than GSM0338 to stop Jethro filtering out non-GSMS0338 characters.
