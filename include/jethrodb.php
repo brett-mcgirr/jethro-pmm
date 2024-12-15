@@ -69,7 +69,8 @@ class JethroDB extends PDO
 			$options = array();
 		}
 		$options[PDO::ATTR_DEFAULT_FETCH_MODE] = PDO::FETCH_ASSOC;
-		$options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
+		$options[PDO::MYSQL_ATTR_SSL_CA] = 'ssl/DigiCertGlobalRootCA.crt.pem';
+		$options[PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT] = false;
 		try {
 			$result = parent::__construct($dsn, $username, $password, $options);
 		} catch (PDOException $e) {
