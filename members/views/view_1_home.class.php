@@ -105,6 +105,7 @@ class View_Home extends View
 			}
 
 			$family->printSummary();
+			echo '<div style="min-height: 60px"></div>';
 			echo '<div class="member-family-members" style="clear: both">';
 			include 'templates/member_list.template.php';
 			echo '</div>';
