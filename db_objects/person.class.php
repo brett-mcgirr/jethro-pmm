@@ -330,6 +330,10 @@ class Person extends DB_Object
 
 	protected function _printSummaryRows() {
 		parent::_printSummaryRows();
+		$this->printCustomFieldSummaryRows();
+	}
+
+	function printCustomFieldSummaryRows() {
 		$wrapwidth = SizeDetector::isNarrow() ? 23 : 35;
 
 		// care is needed here, because we don't print empty fields
