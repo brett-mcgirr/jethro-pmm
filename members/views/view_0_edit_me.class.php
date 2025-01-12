@@ -108,6 +108,12 @@ class View__Edit_Me extends View
 					echo '<p><i>This person has a control centre account, so their details can only be edited via the <a href="'.BASE_URL.'?view=persons&personid='.(int)$person->id.'">control centre</a></i></p>';
 				} else if ($this->canEditFamily() || $this->isMe($person)) {
 					$person->printForm('person_'.$person->id, $this->person_fields);
+
+				echo '<div style="width: 400px">';
+				echo '<table class="table object-summary">';
+				$person->printCustomFieldSummaryRows();
+				echo '</table>';
+				echo '</div>';
 				}
 			}
 				
