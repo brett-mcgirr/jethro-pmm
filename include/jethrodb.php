@@ -50,7 +50,7 @@ class JethroDB extends PDO
 		$port = ifdef('DB_PORT', '');
 		$type = ifdef('DB_TYPE', 'mysql');
 		$host = ifdef('DB_HOST', 'localhost');
-		$dsn = $type . ':host=' . $host . (strlen($port) ? (';port=' . $port) : '') . ';dbname=' . DB_DATABASE . ';charset=utf8';
+		$dsn = $type . ':host=' . $host . (strlen($port) ? (';port=' . $port) : '') . ';dbname=' . DB_DATABASE . ';charset=utf8;sslmode=REQUIRED';
 		$GLOBALS['db'] = new JethroDB($dsn, $username, $password);
 	}
 
@@ -74,7 +74,12 @@ class JethroDB extends PDO
 			$options = array();
 		}
 		$options[PDO::ATTR_DEFAULT_FETCH_MODE] = PDO::FETCH_ASSOC;
-		$options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
+		
+		if (DB_SSL) {
+			$options[PDO::MYSQL_ATTR_SSL_CA] = 'ssl/DigiCertGlobalRootCA.crt.pem';
+			$options[PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT] = false;
+		}
+
 		try {
 			$result = parent::__construct($dsn, $username, $password, $options);
 		} catch (PDOException $e) {

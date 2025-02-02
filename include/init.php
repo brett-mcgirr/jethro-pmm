@@ -30,7 +30,7 @@ strip_all_slashes();
 if (php_sapi_name() != 'cli') {
 	// Make sure we're at the correct URL
 	$do_redirect = FALSE;
-	if (REQUIRE_HTTPS && !defined('IS_PUBLIC') && empty($_SERVER['HTTPS'])) {
+	if (REQUIRE_HTTPS && !defined('IS_PUBLIC') && empty($_SERVER['HTTPS']) && empty($_SERVER['HTTP_X_ARR_SSL'])) {
 		$do_redirect = TRUE;
 	}
 	if (strpos(array_get($_SERVER, 'HTTP_HOST', array_get($_SERVER, 'SERVER_NAME', '')).$_SERVER['REQUEST_URI'], str_replace(Array('http://', 'https://'), '', BASE_URL)) !== 0) {
